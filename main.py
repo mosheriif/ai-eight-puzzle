@@ -1,4 +1,5 @@
 from puzzle_solver.a_star import *
+from puzzle_solver.bfs import BFS
 from puzzle_solver.utils import *
 import time
 
@@ -35,11 +36,12 @@ def main():
 
     # board = [1, 2, 5, 3, 4, 0, 6, 7, 8]
     # board = [1, 3, 0, 6, 7, 2, 5, 4, 8]
-    # board = [5, 3, 1, 4, 2, 8, 7, 6, 0]
+    board = [5, 3, 1, 4, 2, 8, 7, 6, 0]
     # board = [0, 4, 2, 5, 3, 7, 1, 8, 6]
-    board = [3, 1, 2, 6, 4, 5, 7, 8, 0]
+    # board = [3, 1, 2, 6, 4, 5, 7, 8, 0]
     new_board = convert_board_to_int(board)
-    solver = A_Star(new_board, manhattan_distance)
+    # solver = A_Star(new_board, manhattan_distance)
+    solver = BFS(new_board)
 
     begin = time.time()
     res = solver.solve()
