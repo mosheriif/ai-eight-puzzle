@@ -1,21 +1,12 @@
 import heapq
-from typing import List
 from .state import State
+from .solver import Solver
 
 
-class A_Star:
+class A_Star(Solver):
     def __init__(self, board: int, heuristic) -> None:
-        self.board = board
+        super().__init__(board)
         self.heuristic = heuristic
-        self.dirs = [
-            (-1, 'LEFT'),  # Left
-            (1, 'RIGHT'),  # Right
-            (-3, 'UP'),    # Up
-            (3, 'DOWN')    # Down
-        ]
-
-    def is_solved(self, state: State) -> bool:
-        return state.board == 12345678
 
     def solve(self):
         empty_tile = self.get_empty_tile(self.board)
@@ -35,7 +26,6 @@ class A_Star:
 
             if self.is_solved(state):
                 break
-                return state.get_path()
 
             visited.add(state)
 
@@ -65,23 +55,3 @@ class A_Star:
             'search_depth': max_depth,
             'goal_steps': state.get_path()
         }
-
-    def is_valid_tile(self, before: int, after: int) -> bool:
-        if after < 0 or after >= 9:
-            return False
-        if abs(before - after) == 1 and (before // 3) != (after // 3):
-            return False
-        return True
-
-    def get_empty_tile(self, board: int) -> int:
-        pos = 8
-        while board % 10 != 0:
-            board //= 10
-            pos -= 1
-        return pos
-
-    def change_two_tiles(self, board: int, first: int, second: int) -> int:
-        value = (board // (10 ** (8 - second))) % 10
-        board -= value * 10 ** (8 - second)
-        board += value * 10 ** (8 - first)
-        return board
