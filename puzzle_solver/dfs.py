@@ -39,7 +39,7 @@ class dfs(Solver):
     
         return {
             'path_to_goal': state.get_moves()[1:],
-            'cost_of_path': state.g_n + state.h_n,
+            'cost_of_path': depth,
             'nodes_expanded': len(expanded),
             'search_depth': max_depth,
             'goal_steps': state.get_path()
