@@ -1,7 +1,10 @@
+import sys
 from puzzle_solver.a_star import *
 from puzzle_solver.bfs import BFS
 from puzzle_solver.utils import *
 import time
+from PyQt5.QtWidgets import QApplication
+from GUI.main_window import MainWindow
 
 
 def convert_board_to_int(board):
@@ -31,29 +34,34 @@ def print_output(output):
 
 
 def main():
-    print("8 Puzzle Solver: Using A* Algorithm")
-    print("=" * 30)
+    # print("8 Puzzle Solver: Using A* Algorithm")
+    # print("=" * 30)
 
     # board = [1, 2, 5, 3, 4, 0, 6, 7, 8]
     # board = [1, 3, 0, 6, 7, 2, 5, 4, 8]
-    board = [5, 3, 1, 4, 2, 8, 7, 6, 0]
+    # board = [5, 3, 1, 4, 2, 8, 7, 6, 0]
     # board = [0, 4, 2, 5, 3, 7, 1, 8, 6]
     # board = [3, 1, 2, 6, 4, 5, 7, 8, 0]
-    new_board = convert_board_to_int(board)
+    # new_board = convert_board_to_int(board)
     # solver = A_Star(new_board, manhattan_distance)
-    solver = BFS(new_board)
+    # solver = BFS(new_board)
 
-    begin = time.time()
-    res = solver.solve()
-    end = time.time()
+    # begin = time.time()
+    # res = solver.solve()
+    # end = time.time()
 
-    print_output(res['goal_steps'])
-    print('Path To Goal:', res['path_to_goal'])
-    print('Cost Of Path:', res['cost_of_path'])
-    print('Nodes Expanded:', res['nodes_expanded'])
-    print('Search Depth:', res['search_depth'])
-    print('Moves:', len(res['goal_steps']) - 1)
-    print('Time Taken:', (end - begin) * 1000, 'ms')
+    # print_output(res['goal_steps'])
+    # print('Path To Goal:', res['path_to_goal'])
+    # print('Cost Of Path:', res['cost_of_path'])
+    # print('Nodes Expanded:', res['nodes_expanded'])
+    # print('Search Depth:', res['search_depth'])
+    # print('Moves:', len(res['goal_steps']) - 1)
+    # print('Time Taken:', (end - begin) * 1000, 'ms')
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+
+    sys.exit(app.exec_())
 
 
 if __name__ == '__main__':
