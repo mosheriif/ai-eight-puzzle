@@ -24,12 +24,16 @@ class AlgorithmsButtons(QWidget):
         self.a_star_manhattan = QPushButton("A* Manhattan")
         self.a_star_euclidean = QPushButton("A* Euclidean")
 
-
-        self.bfs.setStyleSheet('background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
-        self.dfs.setStyleSheet('background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
-        self.ids.setStyleSheet('background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
-        self.a_star_manhattan.setStyleSheet('background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
-        self.a_star_euclidean.setStyleSheet('background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
+        self.bfs.setStyleSheet(
+            'background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
+        self.dfs.setStyleSheet(
+            'background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
+        self.ids.setStyleSheet(
+            'background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
+        self.a_star_manhattan.setStyleSheet(
+            'background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
+        self.a_star_euclidean.setStyleSheet(
+            'background-color: #6b705c; border-radius : 25; width: 90; height: 40; color: #f5f5f5; font-weight: bold; padding: 5;')
 
         layout.addWidget(self.bfs)
         layout.addWidget(self.dfs)
@@ -47,15 +51,18 @@ class AlgorithmsButtons(QWidget):
 
     def on_click(self):
 
-        if self.bfs.clicked:
-            solver = BFS(self.get_state())
-        elif self.dfs.clicked:
+        button = self.sender()
+        button_name = button.text()
+
+        if button_name == 'DFS':
             solver = dfs(self.get_state())
-        elif self.ids.clicked:
+        elif button_name == 'BFS':
+            solver = BFS(self.get_state())
+        elif button_name == 'IDS':
             solver = iddfs(self.get_state())
-        elif self.a_star_manhattan.clicked:
+        elif button_name == 'A* Manhattan':
             solver = A_Star(self.get_state(), manhattan_distance)
-        elif self.a_star_euclidean.clicked:
+        elif button_name == 'A* Euclidean':
             solver = A_Star(self.get_state(), euclidean_distance)
 
         start = time.time()
