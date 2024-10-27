@@ -34,7 +34,7 @@ def print_output(output):
 
 
 def main():
-    # print("8 Puzzle Solver: Using A* Algorithm")
+    # print("8 Puzzle Solver: Using A* Algorithm")t
     # print("=" * 30)
 
     # board = [1, 2, 5, 3, 4, 0, 6, 7, 8]
