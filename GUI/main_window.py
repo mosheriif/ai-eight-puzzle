@@ -1,7 +1,7 @@
-from PyQt5.QtWidgets import QMainWindow, QHBoxLayout, QWidget
+from PyQt5.QtWidgets import QMainWindow, QHBoxLayout, QWidget, QApplication
 from .left_widget import LeftWidget
 from .right_widget import RightWidget
-
+import sys
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -9,6 +9,8 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("8 Puzzle Solver")
         self.setGeometry(700, 300, 600, 400)
+        # self.setGeometry((QApplication(sys.argv).primaryScreen().width() - 600)/2, (QApplication(sys.argv).primaryScreen().height() - 400)/2, 600, 400)
+        self.setStyleSheet('background-color: #f5f5f5;')
 
         hbox = QHBoxLayout()
 

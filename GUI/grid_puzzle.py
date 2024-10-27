@@ -22,16 +22,23 @@ class GridPuzzle(QWidget):
         for i in range(9):
             button = QLabel(f"{i}")
             button.setFont(QFont('Arial', 20))
-            # button.setStyleSheet('background-color: #cbb9aa; color: #484030;')
+            button.setStyleSheet('border-radius: 50px;')
             button.setAlignment(Qt.AlignCenter)
-            button.setFixedHeight(50)
+            button.setFixedHeight(160)
 
+            # if i == 0:
+            #     button.setStyleSheet(
+            #         'background-color: #484030; color: white; border-radius: 5px;')
+            # else:
+            #     button.setStyleSheet(
+            #         'background-color: #ffa500; color: #ad3333; border-radius: 5px;')
+                
             if i == 0:
                 button.setStyleSheet(
-                    'background-color: #484030; color: white;')
+                    'background-color: #2a9d8f; color: white; border-radius: 5px;')
             else:
                 button.setStyleSheet(
-                    'background-color: #ffa500; color: #ad3333;')
+                    'background-color: #f4a261; color: #ad3333; border-radius: 5px;')
 
             self.grid_layout.addWidget(button, i // 3, i % 3)
 
@@ -45,10 +52,10 @@ class GridPuzzle(QWidget):
 
             if new_state % 10 == 0:
                 button.setStyleSheet(
-                    'background-color: #484030; color: white;')
+                    'background-color: #2a9d8f; color: white; border-radius: 5px;')
             else:
                 button.setStyleSheet(
-                    'background-color: #ffa500; color: #ad3333;')
+                    'background-color: #f4a261; color: #ad3333; border-radius: 5px;')
 
             new_state //= 10
             pos -= 1

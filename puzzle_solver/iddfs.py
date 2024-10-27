@@ -1,7 +1,7 @@
 from .solver import Solver
 from .state import State
 
-class dfs(Solver):
+class iddfs(Solver):
     def __init__(self, board: int) -> None:
         super().__init__(board)
 

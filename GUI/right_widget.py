@@ -8,6 +8,7 @@ class RightWidget(QWidget):
     def __init__(self, udpate_grid):
         super().__init__()
 
+        self.setStyleSheet("background-color: #e0e0e0; border-radius: 5px;")
         vbox = QVBoxLayout()
 
         self.output_widget = OutputWidget()
