@@ -11,6 +11,8 @@ class iddfs(Solver):
         initial_state = State(board=self.board, empty_tile=empty_tile)
         idepth = -1
         state = initial_state
+        visited, expanded = set(), set([initial_state])
+        max_depth = 0
 
         while not (self.is_solved(state)):
             idepth += 1
