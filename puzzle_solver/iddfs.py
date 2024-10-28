@@ -1,6 +1,7 @@
 from .solver import Solver
 from .state import State
 
+
 class iddfs(Solver):
     def __init__(self, board: int) -> None:
         super().__init__(board)
@@ -22,7 +23,7 @@ class iddfs(Solver):
 
             while frontier:
                 state, depth = frontier.pop()
-                visited.add(state)
+                visited.add((state, depth))
                 max_depth = max(max_depth, depth)
 
                 if self.is_solved(state):
@@ -39,10 +40,10 @@ class iddfs(Solver):
                         new_state = State(
                             board=new_board, empty_tile=new_empty_tile, parent=state, move=move)
 
-                        if (new_state not in visited) and (depth + 1 <= idepth):
+                        if ((new_state, depth + 1) not in visited) and (depth + 1 <= idepth):
                             frontier.append((new_state, depth + 1))
                             expanded.add(new_state)
-    
+
         return {
             'path_to_goal': state.get_moves()[1:],
             'cost_of_path': idepth,

@@ -32,7 +32,7 @@ class GridPuzzle(QWidget):
             # else:
             #     button.setStyleSheet(
             #         'background-color: #ffa500; color: #ad3333; border-radius: 5px;')
-                
+
             if i == 0:
                 button.setStyleSheet(
                     'background-color: #2a9d8f; color: white; border-radius: 5px;')

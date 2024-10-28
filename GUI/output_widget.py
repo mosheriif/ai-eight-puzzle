@@ -12,6 +12,7 @@ class OutputWidget(QWidget):
         self.path_cost = QLabel("")
         self.search_depth = QLabel("")
         self.time_taken = QLabel("")
+        self.no_moves = QLabel("")
 
         scroll_area = QScrollArea()
         scroll_area.setWidgetResizable(True)
@@ -31,13 +32,19 @@ class OutputWidget(QWidget):
         layout.addWidget(self.path_cost)
         layout.addWidget(self.search_depth)
         layout.addWidget(self.time_taken)
+        layout.addWidget(self.no_moves)
         layout.addWidget(scroll_area)
 
         self.setLayout(layout)
 
     def update_content(self, content):
-        self.nodes_expanded.setText(f'Nodes Expanded: {str(content["nodes_expanded"])}')
+        self.nodes_expanded.setText(
+            f'Nodes Expanded: {str(content["nodes_expanded"])}')
         self.path_cost.setText(f'Path Cost: {str(content["cost_of_path"])}')
-        self.search_depth.setText(f'Search Depth: {str(content["search_depth"])}')
-        self.time_taken.setText(f'Time Taken: {str(round(content["time_taken"], 4))} ms')
+        self.search_depth.setText(
+            f'Search Depth: {str(content["search_depth"])}')
+        self.time_taken.setText(
+            f'Time Taken: {str(round(content["time_taken"], 4))} ms')
+        self.no_moves.setText(f'Number of Moves: {
+                              len(content["path_to_goal"])}')
         self.moves.setText(f'Moves: {str(content["path_to_goal"])}')
