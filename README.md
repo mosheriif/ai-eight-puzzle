@@ -30,8 +30,8 @@ Each heuristic is analyzed for its admissibility based on the nodes expanded and
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/8-puzzle-solver.git
-   cd 8-puzzle-solver
+   git clone https://github.com/mosheriif/ai-eight-puzzle.git
+   cd ai-eight-puzzle
    ```
 
 2. Run the code:
