@@ -1,4 +1,3 @@
-
 # 8-Puzzle Solver
 
 This repository contains a solution to the 8-puzzle problem using various search algorithms. This project is part of the (CSE351) Introduction to Artificial Intelligence course.
